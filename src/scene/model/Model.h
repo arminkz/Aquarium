@@ -15,6 +15,11 @@ public:
     glm::vec3 getPosition() const { return glm::vec3(_modelMatrix[3]); }
     const DeviceMesh* getDeviceMesh() const { return _mesh.get(); }
 
+    Model(const Model &) = delete;
+    Model &operator=(const Model &) = delete;
+    Model(Model &&) = delete;
+    Model &operator=(Model &&) = delete;
+
     virtual void draw(VkCommandBuffer commandBuffer, const Renderer& renderer) = 0;
     void setPipeline(std::shared_ptr<Pipeline> pipeline) { _pipeline = std::move(pipeline); }
 

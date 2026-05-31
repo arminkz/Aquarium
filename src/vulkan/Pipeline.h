@@ -50,6 +50,11 @@ public:
              const PipelineParams& params);
     ~Pipeline();
 
+    Pipeline(const Pipeline &) = delete;
+    Pipeline &operator=(const Pipeline &) = delete;
+    Pipeline(Pipeline &&) = delete;
+    Pipeline &operator=(Pipeline &&) = delete;
+
     VkPipeline getPipeline() const { return _pipeline; }
     VkPipelineLayout getPipelineLayout() const { return _pipelineLayout; }
 

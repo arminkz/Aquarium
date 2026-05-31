@@ -36,6 +36,11 @@ public:
     FrameBuffer(std::shared_ptr<VulkanContext> ctx, const FrameBufferParams& params);
     ~FrameBuffer();
 
+    FrameBuffer(const FrameBuffer &) = delete;
+    FrameBuffer &operator=(const FrameBuffer &) = delete;
+    FrameBuffer(FrameBuffer &&) = delete;
+    FrameBuffer &operator=(FrameBuffer &&) = delete;
+
     VkExtent2D getExtent() const { return _extent; }
     VkFramebuffer getFrameBuffer() const { return _frameBuffer; }
     VkImage getColorImage() const { return _colorImage; }

@@ -17,6 +17,11 @@ public:
 
     ~DeviceMesh() = default;
 
+    DeviceMesh(const DeviceMesh &) = delete;
+    DeviceMesh &operator=(const DeviceMesh &) = delete;
+    DeviceMesh(DeviceMesh &&) = delete;
+    DeviceMesh &operator=(DeviceMesh &&) = delete;
+
     VkBuffer getVertexBuffer() const { return _vertexBuffer->getBuffer(); }
     VkBuffer getIndexBuffer() const { return _indexBuffer->getBuffer(); }
     uint32_t getIndicesCount() const { return _indexCount; }

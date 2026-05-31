@@ -10,7 +10,12 @@ public:
     Renderer(std::shared_ptr<VulkanContext> ctx, std::shared_ptr<SwapChain> swapChain)
         : _ctx(std::move(ctx)), _swapChain(std::move(swapChain)) {}
     virtual ~Renderer() = default;
-    
+
+    Renderer(const Renderer &) = delete;
+    Renderer &operator=(const Renderer &) = delete;
+    Renderer(Renderer &&) = delete;
+    Renderer &operator=(Renderer &&) = delete;
+
     // Update Logic
     virtual void update() {}; 
 
